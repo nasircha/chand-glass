@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chand Glass</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(-45deg, #0f172a, #1e3a8a, #0c4a6e, #1e40af);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50% }
+      50% { background-position: 100% 50% }
+      100% { background-position: 0% 50% }
+    }
+    .glass {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .offer-banner {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1) }
+      50% { transform: scale(1.05) }
+      100% { transform: scale(1) }
+    }
+    #settingsPanel {
+      position: fixed;
+      top: 0;
+      right: -320px;
+      width: 300px;
+      max-width: 80%;
+      height: 100vh;
+      background: #1f2937;
+      color: #fff;
+      transition: right .35s ease;
+      z-index: 100;
+    }
+    #settingsPanel.active { right: 0; }
+  </style>
+</head>
+<body class="text-white font-sans">
+
+  <!-- Navbar -->
+  <header class="bg-gray-800 shadow-xl sticky top-0 z-50">
+    <div class="flex items-center justify-between p-4">
+      <h1 class="text-2xl font-bold text-blue-400">Chand Glass</h1>
+      <button id="navToggle" class="md:hidden focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <nav id="navMenu" class="hidden md:flex md:justify-center md:space-x-8 text-lg pb-4 md:pb-0">
+      <a href="#" class="hover:text-blue-400">Home</a>
+      <a href="#about" class="hover:text-blue-400">About</a>
+      <a href="#products" class="hover:text-blue-400">Products</a>
+      <a href="#offers" class="hover:text-blue-400">Offers</a>
+      <a href="#contact" class="hover:text-blue-400">Contact</a>
+      <button id="openSettings" class="hover:text-blue-400">Settings</button>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="text-center mt-10 px-4">
+    <h2 class="text-3xl sm:text-4xl font-extrabold">Welcome to Chand Glass</h2>
+    <p class="text-gray-300 mt-3">Your one-stop store for Paints, Glass & Plywood</p>
+    <div class="mt-6 flex justify-center">
+      <input type="text" placeholder="Search products..." class="px-4 py-2 w-full max-w-xs rounded-full text-black" />
+    </div>
+  </section>
+
+  <!-- Offer Banner -->
+  <section id="offers" class="mt-12 px-4 text-center">
+    <div class="bg-yellow-400 text-black font-semibold py-3 px-4 rounded-xl mx-auto max-w-lg offer-banner shadow-lg">
+      🎉 Ultra-Shine Paint Series – Coming Soon! Pre-book &amp; get 10% OFF 🎨
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section id="products" class="mt-16 px-4">
+    <h3 class="text-3xl font-semibold mb-6 text-center">Featured Products</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="p-5 rounded-xl glass shadow-lg text-center">
+        <a href="paint.html">
+          <img src="https://up.yimg.com/ib/th?id=OIP.IOEsAg4TCv0NuWpyCam1fwHaEJ&pid=Api" class="rounded-md mb-4 w-full h-40 object-cover" />
+          <h4 class="text-xl font-bold">Premium Paint</h4>
+          <p class="text-gray-300 text-sm mt-1">Smooth finish, long-lasting colour</p>
+        </a>
+      </div>
+      <div class="p-5 rounded-xl glass shadow-lg text-center">
+        <a href="glass.html">
+          <img src="https://up.yimg.com/ib/th?id=OIP.-sLpAbuWD1DHVLPr8jflPAHaFj&pid=Api" class="rounded-md mb-4 w-full h-40 object-cover" />
+          <h4 class="text-xl font-bold">Tempered Glass</h4>
+          <p class="text-gray-300 text-sm mt-1">Strength & clarity guaranteed</p>
+        </a>
+      </div>
+         <div class="p-5 rounded-xl glass shadow-lg text-center">
+        <a href="glass.html">
+          <img src="https://tse1.mm.bing.net/th/id/OIP.pBJ5jNpixis6LI95ubYFjwHaHa?pid=Api&P=0&h=180" class="rounded-md mb-4 w-full h-40 object-cover" />
+          <h4 class="text-xl font-bold">Tempered Glass</h4>
+          <p class="text-gray-300 text-sm mt-1">Strength & clarity guaranteed</p>
+        </a>
+      </div>
+      <div class="p-5 rounded-xl glass shadow-lg text-center">
+        <a href="ply.html">
+          <img src="https://up.yimg.com/ib/th?id=OIP.YR8ZfZHVLKePnQv5hXgbFAHaEo&pid=Api" class="rounded-md mb-4 w-full h-40 object-cover" />
+          <h4 class="text-xl font-bold">Waterproof Plywood</h4>
+          <p class="text-gray-300 text-sm mt-1">Durable for all conditions</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compact Catalog -->
+   
+  <section class="mt-20 px-4" id="catalog">
+    <h3 class="text-2xl font-semibold mb-6 text-center text-yellow-300">All Products</h3>
+<div class="flex justify-center gap-4 mb-6 flex-wrap">
+  <a href="#catalog" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-sm">All</a>
+  <a href="#paint" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-sm">Paint</a>
+  <a href="#plywood" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-sm">Plywood</a>
+  <a href="#glass" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-sm">Glass</a>
+  <a href="#fevicol" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-sm">Fevicol</a>
+</div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+
+      <!-- Paint -->
+      <div class="bg-gray-800 p-3 rounded-lg shadow-md text-center">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.1uDOjXBu8mVUByjaqu2KNQHaGQ?pid=Api&P=0&h=184">
+        <h4 class="font-semibold text-sm">Asian Apex Ultima</h4>
+        <p class="text-blue-400 text-sm">₹1,799</p>
+        <button class="mt-2 text-xs px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded">Add</button>
+      </div>
+
+      <!-- Plywood -->
+      <div class="bg-gray-800 p-3 rounded-lg shadow-md text-center">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.S_mS6FcYMonXCgmFOeWqaAHaHa?pid=Api&P=0&h=180" class="w-full h-28 object-cover rounded mb-2">
+        <h4 class="font-semibold text-sm">Marine Grade Ply</h4>
+        <p class="text-blue-400 text-sm">₹2,399</p>
+        <button class="mt-2 text-xs px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded">Add</button>
+      </div>
+
+      <!-- Glass -->
+      <div class="bg-gray-800 p-3 rounded-lg shadow-md text-center">
+        <img src="https://tse4.mm.bing.net/th/id/OIP.9T9GtXPGqpuXf_4c9Iw0_QHaFS?pid=Api&P=0&h=180" class="w-full h-28 object-cover rounded mb-2">
+        <h4 class="font-semibold text-sm">6mm Tempered Glass</h4>
+        <p class="text-blue-400 text-sm">₹899</p>
+        <button class="mt-2 text-xs px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded">Add</button>
+      </div>
+
+      <!-- Wood Polish -->
+      <div class="bg-gray-800 p-3 rounded-lg shadow-md text-center">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2021/6/QM/JW/CU/27753567/touchwood-glossy-500x500.jpg" class="w-full h-28 object-cover rounded mb-2">
+        <h4 class="font-semibold text-sm">Asian Wood Polish</h4>
+        <p class="text-blue-400 text-sm">₹499</p>
+        <button class="mt-2 text-xs px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded">Add</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fevicol Products Section -->
+   
+<section class="mt-20 px-4" id="fevicol">
+  <h3 class="text-2xl font-semibold mb-6 text-center text-yellow-300">Fevicol Products</h3>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+
+    <!-- Fevicol MR White Glue -->
+    <div class="bg-gray-800 p-3 rounded-lg shadow-md text-center">
+      <img src="https://tse2.mm.bing.net/th/id/OIP.FozGuZ5Qv3F8OSBT362SbQAAAA?pid=Api&P=0&h=180" class="w-full h-28 object-cover rounded mb-2">
+      <h4 class="font-semibold text-sm">Fevicol MR White Glue 1kg</h4>
+      <p class="text-blue-400 text-sm">₹230</p>
+      <button class="mt-2 text-xs px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded">Add</button>
+    </div>
+
+    <!-- Fevicol SH Resin -->
+    <div class="bg-gray-800 p-3 rounded-lg shadow-md text-center">
+      <img src="https://tse2.mm.bing.net/th/id/OIP.1uDOjXBu8mVUByjaqu2KNQHaGQ?pid=Api&P=0&h=180" class="w-full h-28 object-cover rounded mb-2">
+      <h4 class="font-semibold text-sm">Fevicol SH Resin 5kg</h4>
+      <p class="text-blue-400 text-sm">₹540</p>
+      <button class="mt-2 text-xs px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded">Add</button>
+    </div>
+
+    <!-- Fevicol Probond -->
+    <div class="bg-gray-800 p-3 rounded-lg shadow-md text-center">
+      <img src="https://tse2.mm.bing.net/th/id/OIP.1t4H3evSn-gwSV4fiemKEwHaJ0?pid=Api&P=0&h=180" class="w-full h-28 object-cover rounded mb-2">
+      <h4 class="font-semibold text-sm">Fevicol Probond 500ml</h4>
+      <p class="text-blue-400 text-sm">₹110</p>
+      <button class="mt-2 text-xs px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded">Add</button>
+    </div>
+
+    <!-- Fevicol HeatX -->
+    <div class="bg-gray-800 p-3 rounded-lg shadow-md text-center">
+      <img src="https://tse2.mm.bing.net/th/id/OIP.GzsPbySq8AsqSsyT7-c40gHaHa?pid=Api&P=0&h=180" class="w-full h-28 object-cover rounded mb-2">
+      <h4 class="font-semibold text-sm">Fevicol HeatX Adhesive</h4>
+      <p class="text-blue-400 text-sm">₹180</p>
+      <button class="mt-2 text-xs px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded">Add</button>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- About -->
+  <section id="about" class="mt-20 px-4 text-center">
+    <h3 class="text-3xl font-semibold mb-4">About Us</h3>
+    <p class="text-gray-300 max-w-3xl mx-auto">
+      Chand Glass is a trusted business in Buxar, Bihar, offering high-quality paints,
+      durable glass and reliable plywood with a customer-first approach.
+    </p>
+  </section>
+ <!-- Testimonials Auto Slider -->
+  <section class="mt-20 px-4 sm:px-10">
+    <h3 class="text-3xl font-semibold mb-6 text-center">What Our Customers Say</h3>
+    <div class="relative overflow-hidden w-full max-w-4xl mx-auto">
+      <div id="testimonialSlider" class="flex transition-transform duration-700 ease-in-out w-full">
+        <div class="w-full flex-shrink-0 bg-gray-800 p-6 rounded-xl shadow-md text-center">
+          <p class="text-blue-300 text-lg mb-2">"Excellent quality and service!"</p>
+          <p class="font-semibold">– Saddam Hussain</p>
+        </div>
+        <div class="w-full flex-shrink-0 bg-gray-800 p-6 rounded-xl shadow-md text-center">
+          <p class="text-blue-300 text-lg mb-2">"Glass was crystal clear and delivered fast."</p>
+          <p class="font-semibold">– Ehtesham Hussain</p>
+        </div>
+        <div class="w-full flex-shrink-0 bg-gray-800 p-6 rounded-xl shadow-md text-center">
+          <p class="text-blue-300 text-lg mb-2">"Paint lasted 3 years without fading!"</p>
+          <p class="font-semibold">– Mussarat Ikbal</p>
+        </div>
+        <div class="w-full flex-shrink-0 bg-gray-800 p-6 rounded-xl shadow-md text-center">
+          <p class="text-blue-300 text-lg mb-2">"Plywood was strong and waterproof!"</p>
+          <p class="font-semibold">– Nasir Hussain</p>
+        </div>
+        <div class="w-full flex-shrink-0 bg-gray-800 p-6 rounded-xl shadow-md text-center">
+          <p class="text-blue-300 text-lg mb-2">"چاند گلاس بہت اچھا اسٹور ہے۔ سب کچھ وقت پر اور اچھے ریٹ پر ملا۔"</p>
+          <p class="font-semibold">– روہما</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Contact -->
+  <section id="contact" class="mt-20 px-4 text-center">
+    <h3 class="text-3xl font-semibold mb-6">Get In Touch</h3>
+    <p class="text-gray-300 mb-4">Call <strong>+91 9798753191</strong> or email <strong>mdnasirhussain121@gmail.com</strong></p>
+    <form class="max-w-lg mx-auto bg-gray-800 p-6 rounded-xl space-y-4">
+      <input type="text" placeholder="Your Name" class="w-full p-3 rounded text-black" required />
+      <input type="email" placeholder="Your Email" class="w-full p-3 rounded text-black" required />
+      <textarea rows="4" placeholder="Your Message" class="w-full p-3 rounded text-black" required></textarea>
+      <button class="bg-blue-500 px-6 py-3 rounded hover:bg-blue-600 transition w-full sm:w-auto">Send Message</button>
+    </form>
+  </section>
+
+  <!-- WhatsApp Shortcut -->
+  <a href="https://wa.me/919798753191" target="_blank" class="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-xl hover:scale-110 transition">
+    <img src="https://img.icons8.com/ios-filled/28/ffffff/whatsapp.png">
+  </a>
+
+  <!-- Settings Panel -->
+  <aside id="settingsPanel" class="p-6">
+    <div class="flex justify-between items-center mb-5">
+      <h2 class="text-xl font-semibold">Settings</h2>
+      <button id="closeSettings" class="text-2xl">&times;</button>
+    </div>
+    <label class="block mb-2 font-medium">Language</label>
+    <select class="w-full p-2 rounded text-black mb-5">
+      <option>English</option>
+      <option>Hindi</option>
+      <option>Urdu</option>
+    </select>
+    <label class="flex items-center space-x-2 mb-5">
+      <input type="checkbox" class="form-checkbox"><span>Enable Dark Mode (coming)</span>
+    </label>
+    <button class="w-full bg-blue-600 hover:bg-blue-700 py-2 rounded">Save</button>
+
+    <!-- Admin Panel -->
+    <button id="adminToggle" class="w-full bg-red-600 hover:bg-red-700 py-2 rounded mt-6">Admin Panel</button>
+    <div id="adminPanel" class="mt-4 hidden">
+      <h3 class="text-lg font-semibold mb-3">Admin Login</h3>
+      <input type="text" placeholder="Username" class="w-full p-2 rounded text-black mb-3">
+      <input type="password" placeholder="Password" class="w-full p-2 rounded text-black mb-3">
+      <button class="w-full bg-green-600 hover:bg-green-700 py-2 rounded">Log In</button>
+    </div>
+  </aside>
+
+  <footer class="mt-20 p-6 text-center text-gray-400 bg-gray-800">
+    © 2025 Chand Glass | Built by Nasir Hussain
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    document.getElementById('navToggle').onclick = () => {
+      document.getElementById('navMenu').classList.toggle('hidden');
+    };
+    document.getElementById('openSettings').onclick = () => {
+      document.getElementById('settingsPanel').classList.add('active');
+    };
+    document.getElementById('closeSettings').onclick = () => {
+      document.getElementById('settingsPanel').classList.remove('active');
+    };
+    document.getElementById('adminToggle').onclick = () => {
+      document.getElementById('adminPanel').classList.toggle('hidden');
+    };
+  </script>
+  <script>
+  const slider = document.getElementById('testimonialSlider');
+  let index = 0;
+  setInterval(() => {
+    index = (index + 1) % 5; // total 5 testimonials
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  }, 4000); // slides every 4 seconds
+</script>
+
+</body>
+</html>
