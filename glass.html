@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glass Products – Chand Glass</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(-45deg, #0f172a, #1e3a8a, #0c4a6e, #1e40af);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
+</head>
+<body class="text-white font-sans">
+  <!-- Header -->
+  <header class="bg-gray-900 shadow-lg p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-blue-400">Chand Glass</h1>
+    <a href="index.html" class="text-sm bg-blue-600 px-4 py-2 rounded hover:bg-blue-700">⬅ Back to Home</a>
+  </header>
+
+  <!-- Filters -->
+  <section class="mt-6 px-4 sm:px-10 text-center">
+    <input type="text" id="searchBar" placeholder="Search glass products..." class="px-4 py-2 rounded-full text-black w-full max-w-sm" />
+    <div class="flex justify-center flex-wrap gap-2 mt-4">
+      <button onclick="filterCategory('all')" class="bg-yellow-500 hover:bg-yellow-600 px-4 py-1 rounded text-sm">All</button>
+      <button onclick="filterCategory('clear')" class="bg-blue-500 hover:bg-blue-600 px-4 py-1 rounded text-sm">Clear</button>
+      <button onclick="filterCategory('tempered')" class="bg-green-500 hover:bg-green-600 px-4 py-1 rounded text-sm">Tempered</button>
+      <button onclick="filterCategory('frosted')" class="bg-red-500 hover:bg-red-600 px-4 py-1 rounded text-sm">Frosted</button>
+    </div>
+  </section>
+
+  <!-- Product Grid -->
+  <section class="mt-10 px-4 sm:px-10" id="glass-products">
+    <h2 class="text-3xl font-semibold text-center mb-6 text-yellow-300">Glass Products</h2>
+    <div id="productGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      <!-- Clear Glass -->
+      <div class="product-card clear bg-gray-800 p-3 rounded-lg shadow-md flex flex-col items-center text-center">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2022/1/AI/EE/IO/150347687/clear-glass-sheet-1000x1000.jpg" alt="Clear Glass 5mm" class="w-full h-28 object-cover rounded mb-2">
+        <h4 class="font-semibold text-sm">Clear Glass Sheet 5 mm</h4>
+        <p class="text-blue-400 text-sm">₹399</p>
+        <button onclick="addToCart('Clear Glass Sheet 5 mm', 399)" class="mt-2 text-xs px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded">Add</button>
+      </div>
+      <!-- Tempered Glass -->
+      <div class="product-card tempered bg-gray-800 p-3 rounded-lg shadow-md flex flex-col items-center text-center">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2023/3/296557394/LN/RA/GX/5284982/tempered-glass-500x500.jpg" alt="Tempered Glass 6 mm" class="w-full h-28 object-cover rounded mb-2">
+        <h4 class="font-semibold text-sm">Tempered Glass 6 mm</h4>
+        <p class="text-blue-400 text-sm">₹899</p>
+        <button onclick="addToCart('Tempered Glass 6 mm', 899)" class="mt-2 text-xs px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded">Add</button>
+      </div>
+      <!-- Tempered Glass -->
+      <div class="product-card tempered bg-gray-800 p-3 rounded-lg shadow-md flex flex-col items-center text-center">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2021/1/YE/LB/LK/126339646/tempered-glass-8mm-500x500.jpg" alt="Tempered Glass 8 mm" class="w-full h-28 object-cover rounded mb-2">
+        <h4 class="font-semibold text-sm">Tempered Glass 8 mm</h4>
+        <p class="text-blue-400 text-sm">₹1,199</p>
+        <button onclick="addToCart('Tempered Glass 8 mm', 1199)" class="mt-2 text-xs px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded">Add</button>
+      </div>
+      <!-- Frosted Glass -->
+      <div class="product-card frosted bg-gray-800 p-3 rounded-lg shadow-md flex flex-col items-center text-center">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2021/11/HJ/YU/UT/99956663/frosted-glass-500x500.jpg" alt="Frosted Glass Sheet" class="w-full h-28 object-cover rounded mb-2">
+        <h4 class="font-semibold text-sm">Frosted Glass Sheet</h4>
+        <p class="text-blue-400 text-sm">₹649</p>
+        <button onclick="addToCart('Frosted Glass Sheet', 649)" class="mt-2 text-xs px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded">Add</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cart Modal -->
+  <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50">
+    <div class="bg-white text-black p-6 rounded-lg max-w-md w-full relative">
+      <button onclick="closeCart()" class="absolute top-2 right-2 text-2xl">&times;</button>
+      <h3 class="text-xl font-bold mb-4">🛒 Your Cart</h3>
+      <ul id="cartItems" class="space-y-2 text-sm"></ul>
+      <p class="mt-4 font-semibold">Total: ₹<span id="cartTotal">0</span></p>
+    </div>
+  </div>
+
+  <!-- View Cart Button -->
+  <button onclick="showCart()" class="fixed bottom-6 right-6 bg-yellow-500 hover:bg-yellow-600 px-4 py-2 rounded shadow-lg">View Cart</button>
+
+  <!-- Footer -->
+  <footer class="mt-20 p-4 text-center text-gray-400 bg-gray-900">
+    © 2025 Chand Glass | Glass Section
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    function filterCategory(category) {
+      document.querySelectorAll('.product-card').forEach(card => {
+        const match = card.classList.contains(category);
+        card.style.display = (category === 'all' || match) ? 'flex' : 'none';
+      });
+    }
+
+    document.getElementById('searchBar').addEventListener('input', e => {
+      const query = e.target.value.toLowerCase();
+      document.querySelectorAll('.product-card').forEach(card => {
+        const name = card.querySelector('h4').textContent.toLowerCase();
+        card.style.display = name.includes(query) ? 'flex' : 'none';
+      });
+    });
+
+    const cart = [];
+
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      alert(`${name} added to cart!`);
+    }
+
+    function showCart() {
+      const cartItems = document.getElementById('cartItems');
+      const cartTotal = document.getElementById('cartTotal');
+      cartItems.innerHTML = '';
+      let total = 0;
+      cart.forEach(item => {
+        total += item.price;
+        const li = document.createElement('li');
+        li.textContent = `✔ ${item.name} - ₹${item.price}`;
+        cartItems.appendChild(li);
+      });
+      cartTotal.textContent = total;
+      document.getElementById('cartModal').classList.remove('hidden');
+    }
+
+    function closeCart() {
+      document.getElementById('cartModal').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
