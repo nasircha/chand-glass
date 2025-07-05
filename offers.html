@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Offers | Chand Glass</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(-45deg, #0f172a, #1e3a8a, #0c4a6e, #1e40af);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+      color: white;
+    }
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .product-card {
+      background: #ffffff;
+      border-radius: 1rem;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 18px rgba(255, 255, 255, 0.15);
+    }
+
+    .strike {
+      text-decoration: line-through;
+      color: #dc2626;
+    }
+
+    .discount {
+      background-color: #22c55e;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="text-center py-6 bg-opacity-10 glass shadow-xl">
+    <h1 class="text-3xl font-bold text-yellow-400">🔥 Special Offers - Chand Glass 🔥</h1>
+    <p class="text-sm text-gray-200 mt-1">Exclusive discounts on Paint & Plywood Products!</p>
+  </header>
+
+  <main class="max-w-7xl mx-auto p-6 mt-10 glass rounded-xl">
+
+    <!-- Paint Section -->
+    <h2 class="text-2xl font-semibold text-center text-blue-300 mb-8">🎨 Paint Products</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <!-- Paint Items -->
+      <div class="product-card p-4 text-black">
+        <img src="https://m.media-amazon.com/images/I/61OfZp7J69L.jpg" alt="Asian Paint" class="h-36 w-full object-cover rounded mb-3">
+        <h3 class="font-bold text-lg">Asian Royale Emulsion</h3>
+        <div class="text-yellow-500 text-sm">★★★★☆ (268)</div>
+        <p><span class="font-bold text-lg">₹470</span> <span class="strike ml-2">₹520</span> <span class="discount ml-2">10% OFF</span></p>
+      </div>
+
+      <div class="product-card p-4 text-black">
+        <img src="https://m.media-amazon.com/images/I/61FZz6TbA-L._AC_SL1000_.jpg" class="h-36 w-full object-cover rounded mb-3" />
+        <h3 class="font-bold text-lg">Nerolac Beauty Smooth Finish</h3>
+        <div class="text-yellow-500 text-sm">★★★★☆ (180)</div>
+        <p><span class="font-bold text-lg">₹345</span> <span class="strike ml-2">₹400</span> <span class="discount ml-2">14% OFF</span></p>
+      </div>
+
+      <div class="product-card p-4 text-black">
+        <img src="https://m.media-amazon.com/images/I/61xPt7Yv3ZL.jpg" class="h-36 w-full object-cover rounded mb-3" />
+        <h3 class="font-bold text-lg">Berger WeatherCoat Paint</h3>
+        <div class="text-yellow-500 text-sm">★★★★★ (322)</div>
+        <p><span class="font-bold text-lg">₹790</span> <span class="strike ml-2">₹850</span> <span class="discount ml-2">7% OFF</span></p>
+      </div>
+
+      <div class="product-card p-4 text-black">
+        <img src="https://m.media-amazon.com/images/I/71X1vmpD38L.jpg" class="h-36 w-full object-cover rounded mb-3" />
+        <h3 class="font-bold text-lg">Indigo Floor Coat Emulsion</h3>
+        <div class="text-yellow-500 text-sm">★★★☆☆ (95)</div>
+        <p><span class="font-bold text-lg">₹640</span> <span class="strike ml-2">₹720</span> <span class="discount ml-2">11% OFF</span></p>
+      </div>
+
+      <div class="product-card p-4 text-black">
+        <img src="https://m.media-amazon.com/images/I/61U9RBq1k-L.jpg" class="h-36 w-full object-cover rounded mb-3" />
+        <h3 class="font-bold text-lg">Dulux Velvet Touch</h3>
+        <div class="text-yellow-500 text-sm">★★★★☆ (102)</div>
+        <p><span class="font-bold text-lg">₹850</span> <span class="strike ml-2">₹930</span> <span class="discount ml-2">9% OFF</span></p>
+      </div>
+
+      <div class="product-card p-4 text-black">
+        <img src="https://m.media-amazon.com/images/I/61twZTJ2X4L.jpg" class="h-36 w-full object-cover rounded mb-3" />
+        <h3 class="font-bold text-lg">Shalimar Wall Paint</h3>
+        <div class="text-yellow-500 text-sm">★★★☆☆ (72)</div>
+        <p><span class="font-bold text-lg">₹410</span> <span class="strike ml-2">₹460</span> <span class="discount ml-2">11% OFF</span></p>
+      </div>
+    </div>
+
+    <!-- Ply Section -->
+    <h2 class="text-2xl font-semibold text-center text-blue-300 mt-16 mb-8">🪵 Plywood Products</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <!-- Ply Items -->
+      <div class="product-card p-4 text-black">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2023/8/334133578/WA/HT/LR/174603107/gurjan-plywood.jpg" class="h-36 w-full object-cover rounded mb-3" />
+        <h3 class="font-bold text-lg">Gurjan Waterproof Ply</h3>
+        <div class="text-yellow-500 text-sm">★★★★☆ (64)</div>
+        <p><span class="font-bold text-lg">₹1650</span> <span class="strike ml-2">₹1900</span> <span class="discount ml-2">13% OFF</span></p>
+      </div>
+
+      <div class="product-card p-4 text-black">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2022/8/OV/YZ/OS/104445651/shuttering-plywood.jpg" class="h-36 w-full object-cover rounded mb-3" />
+        <h3 class="font-bold text-lg">Shuttering Plywood 18mm</h3>
+        <div class="text-yellow-500 text-sm">★★★☆☆ (58)</div>
+        <p><span class="font-bold text-lg">₹1350</span> <span class="strike ml-2">₹1500</span> <span class="discount ml-2">10% OFF</span></p>
+      </div>
+
+      <div class="product-card p-4 text-black">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2023/12/363290361/WH/BF/NN/107942331/marine-plywood-18mm.jpg" class="h-36 w-full object-cover rounded mb-3" />
+        <h3 class="font-bold text-lg">Marine Grade Plywood</h3>
+        <div class="text-yellow-500 text-sm">★★★★★ (85)</div>
+        <p><span class="font-bold text-lg">₹2100</span> <span class="strike ml-2">₹2350</span> <span class="discount ml-2">11% OFF</span></p>
+      </div>
+
+      <div class="product-card p-4 text-black">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2023/12/365037928/OA/HV/FD/14832931/mr-grade-plywood.jpg" class="h-36 w-full object-cover rounded mb-3" />
+        <h3 class="font-bold text-lg">MR Grade Plywood 12mm</h3>
+        <div class="text-yellow-500 text-sm">★★★☆☆ (45)</div>
+        <p><span class="font-bold text-lg">₹1050</span> <span class="strike ml-2">₹1200</span> <span class="discount ml-2">12% OFF</span></p>
+      </div>
+
+      <div class="product-card p-4 text-black">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2023/12/365163731/KI/ZQ/IG/138274287/18mm-bwp-plywood.jpg" class="h-36 w-full object-cover rounded mb-3" />
+        <h3 class="font-bold text-lg">BWP Grade Ply 18mm</h3>
+        <div class="text-yellow-500 text-sm">★★★★☆ (33)</div>
+        <p><span class="font-bold text-lg">₹1890</span> <span class="strike ml-2">₹2100</span> <span class="discount ml-2">10% OFF</span></p>
+      </div>
+
+      <div class="product-card p-4 text-black">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2023/12/364378265/ID/SJ/SS/1623867/calibrated-plywood.jpg" class="h-36 w-full object-cover rounded mb-3" />
+        <h3 class="font-bold text-lg">Calibrated Ply 16mm</h3>
+        <div class="text-yellow-500 text-sm">★★★☆☆ (23)</div>
+        <p><span class="font-bold text-lg">₹1750</span> <span class="strike ml-2">₹1980</span> <span class="discount ml-2">12% OFF</span></p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="text-center py-6 mt-16 glass text-gray-200">
+    © 2025 Chand Glass • All Rights Reserved • Buxar, Bihar
+  </footer>
+
+</body>
+</html>
