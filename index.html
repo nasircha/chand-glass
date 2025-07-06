@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#1e40af" />
+<link rel="apple-touch-icon" href="icons/icon-192.png" />
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chand Glass</title>
@@ -316,6 +320,15 @@
     index = (index + 1) % 5; // total 5 testimonials
     slider.style.transform = `translateX(-${index * 100}%)`;
   }, 4000); // slides every 4 seconds
+</script>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("service-worker.js")
+        .then(reg => console.log("Service worker registered"))
+        .catch(err => console.log("Service worker failed", err));
+    });
+  }
 </script>
 
 </body>
