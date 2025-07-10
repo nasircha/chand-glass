@@ -290,12 +290,14 @@
   <section id="contact" class="mt-20 px-4 text-center">
     <h3 class="text-3xl font-semibold mb-6">Get In Touch</h3>
     <p class="text-gray-300 mb-4">Call <strong>+91 9798753191</strong> or email <strong>mdnasirhussain121@gmail.com</strong></p>
-    <form class="max-w-lg mx-auto bg-gray-800 p-6 rounded-xl space-y-4">
-      <input type="text" placeholder="Your Name" class="w-full p-3 rounded text-black" required />
-      <input type="email" placeholder="Your Email" class="w-full p-3 rounded text-black" required />
-      <textarea rows="4" placeholder="Your Message" class="w-full p-3 rounded text-black" required></textarea>
-      <button class="bg-blue-500 px-6 py-3 rounded hover:bg-blue-600 transition w-full sm:w-auto">Send Message</button>
-    </form>
+   <form action="https://formspree.io/f/mdkzqaol" method="POST" class="max-w-lg mx-auto bg-gray-800 p-6 rounded-xl space-y-4">
+  <input type="text" name="name" placeholder="Your Name" class="w-full p-3 rounded text-black" required />
+  <input type="email" name="email" placeholder="Your Email" class="w-full p-3 rounded text-black" required />
+  <textarea name="message" rows="4" placeholder="Your Message" class="w-full p-3 rounded text-black" required></textarea>
+  <button type="submit" class="bg-blue-500 px-6 py-3 rounded hover:bg-blue-600 transition w-full sm:w-auto">Send Message</button>
+  <input type="hidden" name="_next" value="thankyou.html" />
+</form>
+
   </section>
 
   <!-- WhatsApp Shortcut -->
