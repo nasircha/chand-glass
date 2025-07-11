@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js" type="module"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js" type="module"></script>
+<script type="module" src="firebaseauth.js"></script>
+
   <link rel="manifest" href="manifest.json" />
 <meta name="theme-color" content="#1e40af" />
 <link rel="apple-touch-icon" href="icons/icon-192.png" />
@@ -70,6 +75,22 @@
       <button id="openSettings" class="hover:text-blue-400">Settings</button>
     </nav>
   </header>
+<!-- Floating Cart Button -->
+<button id="openCart" class="fixed bottom-24 right-6 bg-yellow-400 text-black p-3 rounded-full shadow-lg hover:scale-110 transition z-50">
+  🛒
+</button>
+
+<!-- Cart Modal -->
+<div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 hidden">
+  <div class="bg-white w-80 max-w-full p-6 rounded-xl text-black">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-lg font-bold">Your Cart</h2>
+      <button id="closeCart" class="text-xl font-bold">&times;</button>
+    </div>
+    <ul id="cartItems" class="space-y-2 max-h-60 overflow-y-auto"></ul>
+  </div>
+</div>
+
 
   <!-- Hero -->
   <section class="text-center mt-10 px-4">
@@ -290,7 +311,7 @@
   <section id="contact" class="mt-20 px-4 text-center">
     <h3 class="text-3xl font-semibold mb-6">Get In Touch</h3>
     <p class="text-gray-300 mb-4">Call <strong>+91 9798753191</strong> or email <strong>mdnasirhussain121@gmail.com</strong></p>
-<form action="https://formsubmit.co/mdnasirhussain121@gmail.com" method="POST" class="max-w-lg mx-auto bg-gray-800 p-6 rounded-xl space-y-4">
+   <form action="https://formsubmit.co/mdnasirhussain121@gmail.com" method="POST" class="max-w-lg mx-auto bg-gray-800 p-6 rounded-xl space-y-4">
   <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="_next" value="https://nasircha.github.io/chand-glass/thankyou.html">
 
@@ -299,6 +320,7 @@
   <textarea name="message" rows="4" placeholder="Your Message" class="w-full p-3 rounded text-black" required></textarea>
   <button class="bg-blue-500 px-6 py-3 rounded hover:bg-blue-600 transition w-full sm:w-auto">Send Message</button>
 </form>
+
 
   </section>
 
@@ -452,6 +474,7 @@
     adSlider.style.transform = `translateX(-${adIndex * 100}%)`;
   }, 3000); // change every 3 seconds
 </script>
+<script src="cart.js" defer></script>
 
 </body>
 </html>
